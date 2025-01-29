@@ -28,7 +28,7 @@ https://github.com/merisir573/finals-frontend
 
 Video Link:
 
-https://youtu.be/4okENh2aR3E
+https://youtu.be/4okENh2aR3E (NOTE: The video is send only, if it doesn't work, please send an E-Mail so I can change it to public)
 
 ---My Design---
 For the most part the designs are pretty straightforward.
