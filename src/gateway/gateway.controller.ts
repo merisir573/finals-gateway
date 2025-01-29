@@ -30,7 +30,7 @@ export class GatewayController {
     const normalizedPath = path.replace(/^\/api\/v1/, ''); // Removes '/api/v1' from the start of the path
 
     if (normalizedPath.startsWith('/doctor')) {
-      return `http://doctor:3001${normalizedPath}`;
+      return `https://doctor-service.onrender.com${normalizedPath}`;
     } else if (normalizedPath.startsWith('/pharmacy')) {
       return `http://pharmacy:3002${normalizedPath}`;
     } else if (normalizedPath.startsWith('/medicine')) {
