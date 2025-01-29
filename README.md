@@ -11,6 +11,7 @@ NOTE 2: As I explained in the video, due to not being able to make Render work I
 - For the frontend the link is http://localhost:5173/doctor
 - For RabbitMQ the link is http://localhost:15672/#/
 - For MongoDB I recommend downloading MongoDB Compass if you want to view the data
+
 I apologize for not being able to deploy it, I did not expect Render to not work well with gateways.
 
 Github Links (Due to the nature of Render I uploaded them as seperate repositories):
