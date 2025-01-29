@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"   # RabbitMQ message queue port
+      - "15672:15672" # RabbitMQ management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    networks:
+      - my-app-network
+
+  gateway:
+    build:
+      context: ./gateway
+    ports:
+      - "3000:3000"
+    depends_on:
+      - doctor
+      - pharmacy
+      - medicine
+      - auth
+      - rabbitmq
+    networks:
+      - my-app-network
+
+  doctor:
+    build:
+      context: ./doctor-service
+    ports:
+      - "3001:3001"
+    depends_on:
+      - rabbitmq
+    networks:
+      - my-app-network
+
+  pharmacy:
+    build:
+      context: ./pharmacy-service
+    ports:
+      - "3002:3002"
+    depends_on:
+      - rabbitmq
+    networks:
+      - my-app-network
+
+  medicine:
+    build:
+      context: ./medicine-service
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongodb
+    networks:
+      - my-app-network
+
+  auth:
+    build:
+      context: ./auth-service
+    ports:
+      - "3004:3004"
+    networks:
+      - my-app-network
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"  # MongoDB port
+    networks:
+      - my-app-network
+
+networks:
+  my-app-network:
+    driver: bridge
