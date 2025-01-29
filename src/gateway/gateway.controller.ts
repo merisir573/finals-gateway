@@ -34,7 +34,7 @@ export class GatewayController {
   } else if (normalizedPath.startsWith('/pharmacy')) {
     return `https://pharmacy-service.onrender.com${normalizedPath}`;
   } else if (normalizedPath.startsWith('/medicine')) {
-    return `https://medicine-service.onrender.com${normalizedPath}`;
+    return `https://finals-medicine.onrender.com${normalizedPath}`;
   } else if (normalizedPath.startsWith('/auth')) {
     return `https://auth-service.onrender.com${normalizedPath}`;
   }
